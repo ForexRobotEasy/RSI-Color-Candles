@@ -1,0 +1,111 @@
+
+//+------------------------------------------------------------------+
+//|                                       RSI Color Candles          |
+//|                                      forexroboteasy.com          |
+//|                                       Forex Robot Easy Team       |
+//+------------------------------------------------------------------+
+
+// Include necessary libraries
+#include <Trade\Trade.mqh>
+#include <Indicators\Indicators.mqh>
+
+//+------------------------------------------------------------------+
+//| Custom Indicator Inputs                                          |
+//+------------------------------------------------------------------+
+input int RSI_Period = 14;     // RSI period
+input int RSI_Level = 50;      // RSI level for color coding
+
+//+------------------------------------------------------------------+
+//| Global Variables                                                 |
+//+------------------------------------------------------------------+
+CTrade trade;                  // Trade object
+CRSI rsi;                      // RSI object
+
+//+------------------------------------------------------------------+
+//| Expert initialization function                                   |
+//+------------------------------------------------------------------+
+int OnInit()
+{
+   // Initialize RSI indicator
+   rsi.Init(_Symbol, _Period, RSI_Period);
+
+   return(INIT_SUCCEEDED);
+}
+
+//+------------------------------------------------------------------+
+//| Expert tick function                                             |
+//+------------------------------------------------------------------+
+void OnTick()
+{
+   // Calculate RSI value
+   double rsiValue = rsi.Value[0];
+
+   // Check if RSI is above or below the level
+   if (rsiValue > RSI_Level)
+   {
+      // Color candles above the level
+      ColorCandlesAboveLevel();
+   }
+   else
+   {
+      // Color candles below the level
+      ColorCandlesBelowLevel();
+   }
+}
+
+//+------------------------------------------------------------------+
+//| Color candles above the RSI level                                |
+//+------------------------------------------------------------------+
+void ColorCandlesAboveLevel()
+{
+   // Place your code here to color candles above the RSI level
+   // ...
+}
+
+//+------------------------------------------------------------------+
+//| Color candles below the RSI level                                |
+//+------------------------------------------------------------------+
+void ColorCandlesBelowLevel()
+{
+   // Place your code here to color candles below the RSI level
+   // ...
+}
+
+//+------------------------------------------------------------------+
+//| Expert deinitialization function                                 |
+//+------------------------------------------------------------------+
+void OnDeinit(const int reason)
+{
+   // Perform any necessary deinitialization here
+   // ...
+}
+
+//+------------------------------------------------------------------+
+//| Custom functions                                                 |
+//+------------------------------------------------------------------+
+void CustomFunction1()
+{
+   // Place your custom function code here
+   // ...
+}
+
+void CustomFunction2()
+{
+   // Place your custom function code here
+   // ...
+}
+
+//+------------------------------------------------------------------+
+//| Custom classes                                                   |
+//+------------------------------------------------------------------+
+class CustomClass1
+{
+   // Place your custom class code here
+   // ...
+}
+
+class CustomClass2
+{
+   // Place your custom class code here
+   // ...
+}
